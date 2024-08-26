@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3539B9CA2C789EE3002FBFCE /* WheelNGApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539B9C92C789EE3002FBFCE /* WheelNGApp.swift */; };
-		3539B9CC2C789EE3002FBFCE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539B9CB2C789EE3002FBFCE /* ContentView.swift */; };
 		3539B9CE2C789EE4002FBFCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3539B9CD2C789EE4002FBFCE /* Assets.xcassets */; };
 		3539B9D12C789EE4002FBFCE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3539B9D02C789EE4002FBFCE /* Preview Assets.xcassets */; };
 		3539B9DB2C789EE4002FBFCE /* WheelNGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539B9DA2C789EE4002FBFCE /* WheelNGTests.swift */; };
 		3539B9E52C789EE4002FBFCE /* WheelNGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539B9E42C789EE4002FBFCE /* WheelNGUITests.swift */; };
 		3539B9E72C789EE4002FBFCE /* WheelNGUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539B9E62C789EE4002FBFCE /* WheelNGUITestsLaunchTests.swift */; };
+		3539B9F42C789F34002FBFCE /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539B9F32C789F34002FBFCE /* MotionManager.swift */; };
+		3539BA2F2C78CEB0002FBFCE /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539BA2E2C78CEB0002FBFCE /* HapticFeedback.swift */; };
+		3539BA312C78D1AC002FBFCE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539B9CB2C789EE3002FBFCE /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		3539B9E02C789EE4002FBFCE /* WheelNGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WheelNGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3539B9E42C789EE4002FBFCE /* WheelNGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelNGUITests.swift; sourceTree = "<group>"; };
 		3539B9E62C789EE4002FBFCE /* WheelNGUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelNGUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3539B9F32C789F34002FBFCE /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
+		3539BA2E2C78CEB0002FBFCE /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				3539B9C92C789EE3002FBFCE /* WheelNGApp.swift */,
+				3539B9F32C789F34002FBFCE /* MotionManager.swift */,
 				3539B9CB2C789EE3002FBFCE /* ContentView.swift */,
+				3539BA2E2C78CEB0002FBFCE /* HapticFeedback.swift */,
 				3539B9CD2C789EE4002FBFCE /* Assets.xcassets */,
 				3539B9CF2C789EE4002FBFCE /* Preview Content */,
 			);
@@ -257,7 +263,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3539B9CC2C789EE3002FBFCE /* ContentView.swift in Sources */,
+				3539B9F42C789F34002FBFCE /* MotionManager.swift in Sources */,
+				3539BA2F2C78CEB0002FBFCE /* HapticFeedback.swift in Sources */,
+				3539BA312C78D1AC002FBFCE /* ContentView.swift in Sources */,
 				3539B9CA2C789EE3002FBFCE /* WheelNGApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,18 +433,25 @@
 				DEVELOPMENT_TEAM = Z64L7GR687;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Used for QR scanner\n";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Used for vehicle steering ";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.richies3d.WheelNG;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.richies3s.WheelNG;
+				PRODUCT_NAME = WheelNG;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -454,18 +469,25 @@
 				DEVELOPMENT_TEAM = Z64L7GR687;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Used for QR scanner\n";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Used for vehicle steering ";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.richies3d.WheelNG;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.richies3s.WheelNG;
+				PRODUCT_NAME = WheelNG;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
