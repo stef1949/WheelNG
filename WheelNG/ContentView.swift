@@ -15,7 +15,15 @@ struct ContentView: View {
     
     //Haptics
     /// @State private var engine: CHHapticEngine?
+    func connectAction() {
+        // Your connect action goes here
+        print("Connect tapped")
+    }
     
+    //Settings Variables
+    @State private var isDarkMode = true
+    @State private var isHorizonLockEnabled = true
+        
     //RPM Variables
     @State private var rpm = 5
     private let minValue = 0.0
@@ -69,24 +77,26 @@ struct ContentView: View {
                            endRadius: 500)
             .ignoresSafeArea(.all) // Ensures the gradient covers the entire screen
             .opacity(0.5)
-            GeometryReader { geometry in
+
                 //RPM Line
-                VStack {
-                    
-                    Gauge(value: Double((rpm)), in: minValue...maxValue) {
-                        Label("RPM(x1000)", systemImage: "tachometer")
-                    } currentValueLabel: {
-                        Text(Int(rpm), format: .number)
-                    } minimumValueLabel: {
-                        Text("\(Int(minValue))")
-                    } maximumValueLabel: {
-                        Text("\(Int(maxValue))")
-                    }
-                    .foregroundColor(.gray)
-                    .tint(gradient)
-                    .padding()
-                    
-                    
+            VStack {
+                
+                Gauge(value: Double((rpm)), in: minValue...maxValue) {
+                    Label("RPM(x1000)", systemImage: "tachometer")
+                } currentValueLabel: {
+                    Text(Int(rpm), format: .number)
+                } minimumValueLabel: {
+                    Text("\(Int(minValue))")
+                } maximumValueLabel: {
+                    Text("\(Int(maxValue))")
+                }
+                .foregroundColor(.gray)
+                .tint(gradient)
+                .padding([.top, .leading, .trailing])
+                
+                Image(systemName: "")
+                
+                           
                     HStack {
                         
                         // Brake Pedal Icon
@@ -106,8 +116,6 @@ struct ContentView: View {
                             }
                             .gaugeStyle(SpeedometerGaugeStyle())
                             .rotationEffect(.degrees(-90 - motionManager.angle), anchor: .center) // Apply rotation based on tilt
-                            
-                            
                             
                             Spacer()
                             
@@ -152,20 +160,18 @@ struct ContentView: View {
                                 .gaugeStyle(.accessoryCircularCapacity)
                                 
                                 Label("", systemImage: "thermometer.and.liquid.waves")
+                                    .labelStyle(/*@START_MENU_TOKEN@*/DefaultLabelStyle()/*@END_MENU_TOKEN@*/)
                             }
                             .offset(CGSize(width: 140.0, height: -110.0))
-                            
-                            
-                            
+                               
                             //Gear
                             Image(systemName: "1.square.fill")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 50.0, height: 50)
-                                .offset(CGSize(width: -165.0, height: 100.0))
-                                
+                                .offset(CGSize(width: -150.0, height: 100.0))
+                            
                         }
-                        
                         
                         Spacer()
                         
@@ -173,12 +179,31 @@ struct ContentView: View {
                         accelpedalView()
                     }
                 }
-                
+            ZStack (alignment: .topTrailing) {
+             
+                // Settings Cog Button with Menu
+                Menu {
+                    Button(action: connectAction) {
+                        Label("Connect", systemImage: "wifi")
+                    }
+                    Toggle(isOn: $isDarkMode) {
+                        Label("Light/Dark Mode", systemImage: "moon.circle")
+                    }
+                    
+                    Toggle(isOn: $isHorizonLockEnabled) {
+                        Label("Horizon Lock", systemImage: "lock.rotation")
+                    }
+                } label: {
+                    Image(systemName: "gear")
+                        .font(.system(size: 24))
+                        .padding()
+                        .symbolRenderingMode(.multicolor)
+                }
             }
-            
+            .offset(CGSize(width: 350.0, height: -80.0))
         }
-    }}
-
+    }
+}
 
 struct SpeedometerGaugeStyle: GaugeStyle {
     private var heatGradient = LinearGradient(gradient: Gradient(colors: [.blue, .purple, .pink, .red]), startPoint: .trailing, endPoint: .leading)
