@@ -1,4 +1,9 @@
-# WheelNG - Racing Game Dashboard
+<p align="center">
+<img src="https://github.com/stef1949/WheelNG/blob/main/AppIcon~ios-marketing.png" width="200">
+</p>
+<h1 align="center">
+WheelNG - Racing Game Dashboard
+</h1>
 
 **WheelNG** is a SwiftUI-based dashboard for a racing game, providing real-time data visualization such as speed, RPM, and pedal states. The app utilizes device motion to rotate the speedometer and offers a sleek, gradient-enhanced user interface.
 
